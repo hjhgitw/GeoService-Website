@@ -3,8 +3,8 @@ backend:
   repo: hjhgitw/GeoService-Website
   branch: main
   auth:
-    client_id: ${GITHUB_CLIENT_ID}
-    redirect_uri: https://api.netlify.com/auth/done
+    client_id: Ov23liYIvCsznuR8HoHR
+    redirect_uri: https://geoservice.netlify.app/callback
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
