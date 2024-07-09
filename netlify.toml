@@ -1,0 +1,12 @@
+[build]
+  command = ""
+  publish = "/"
+
+[dev]
+  command = "npm run build"
+  targetPort = 8000
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    # Lighthouse configuration options (if any)
