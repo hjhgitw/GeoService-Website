@@ -12,6 +12,9 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/de">Germany</a></li>
+        <li><a href="/admin/">Admin</a></li>
+        <li><a href="#" id="login-btn">Login</a></li>
+        <li><a href="#" id="logout-btn" style="display: none;">Logout</a></li>
       </ul>
     </nav>
   </header>
@@ -26,16 +29,31 @@
   </footer>
 
   <script src="script.js"></script>
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
+    // Inject the GITHUB_CLIENT_ID from the environment variable
+    const GITHUB_CLIENT_ID = "0v23LiDMVeJiLGhYA2PGp"; // Replace with process.env.GITHUB_CLIENT_ID if using a build step to inject
+
+    document.getElementById("login-btn").addEventListener("click", () => {
+      window.location.href = `https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&scope=repo,user`;
+    });
+
+    document.getElementById("logout-btn").addEventListener("click", () => {
+      localStorage.removeItem("token");
+      window.location.reload();
+    });
+
+    // Check for token in URL and store it
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    if (token) {
+      localStorage.setItem('token', token);
+      window.history.replaceState({}, document.title, "/");
+    }
+
+    // Check for token in localStorage and update UI
+    if (localStorage.getItem("token")) {
+      document.getElementById("login-btn").style.display = "none";
+      document.getElementById("logout-btn").style.display = "block";
     }
   </script>
 </body>
