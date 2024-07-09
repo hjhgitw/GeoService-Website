@@ -2,9 +2,13 @@
   "name": "geoservice-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "serve": "http-server -p 8000"
   },
   "dependencies": {
-    "dotenv": "^10.0.0"
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
   }
 }
