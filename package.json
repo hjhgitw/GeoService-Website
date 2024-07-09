@@ -2,7 +2,6 @@
   "name": "geoservice-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build",
     "start": "http-server -p 8000"
   },
   "dependencies": {

@@ -1,9 +1,14 @@
 [build]
-  command = "npm run build"
-  publish = "build"
+  command = ""
+  publish = "public"
 
 [dev]
   command = "npm run start"
-  targetPort = 3000
+  targetPort = 8000
   port = 8888
-  publish = "build"
+  publish = "public"
+
+  [[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    thresholds = { performance = 0.9, accessibility = 0.9, "best-practices" = 0.9, seo = 0.9 }
