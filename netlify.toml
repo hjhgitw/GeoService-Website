@@ -7,3 +7,7 @@
   targetPort = 8000
   port = 8888
   publish = "public"
+
+[context.production.environment]
+  GITHUB_CLIENT_ID = "0v23LiDMVeJiLGhYA2PGp"
+  GITHUB_CLIENT_SECRET = "66b33c73bfc5a57b1db1433fe34cea4cc142686f"
