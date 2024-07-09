@@ -1,54 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GeoService</title>
-    <meta name="google-adsense-account" content="ca-pub-7676441973228396">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoService Website</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="logo">GeoService</div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="home">
-            <h1>Welcome to GeoService</h1>
-            <p>Your one-stop solution for geolocation and IP lookup services.</p>
-        </section>
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Geolocation API</li>
-                <li>IP Lookup</li>
-                <li>Location Data</li>
-            </ul>
-        </section>
-        <section id="about">
-            <h2>About Us</h2>
-            <p>We provide reliable and accurate geolocation services to help you understand your audience better.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: info@geoservice.com</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 GeoService. All rights reserved.</p>
-        <div class="social-media">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">LinkedIn</a>
-        </div>
-    </footer>
-    <script src="scripts.js"></script>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/de">Germany</a></li>
+        <li><a href="/admin/">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Welcome to GeoService</h1>
+    <p>This is a simple static site deployed on Netlify.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 GeoService</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,18 +1,19 @@
-# /admin/config.yml
 backend:
-  name: git-gateway
+  name: github
+  repo: hjhgitw/GeoService-Website
   branch: main
+  auth:
+    client_id: ${GITHUB_CLIENT_ID}
+    redirect_uri: https://api.netlify.com/auth/done
 
-media_folder: "static/img"
-public_folder: "/img"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "pages"
     label: "Pages"
-    files:
-      - file: "index.html"
-        label: "Home"
-        name: "home"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+    folder: "public"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
